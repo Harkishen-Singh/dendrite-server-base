@@ -132,6 +132,24 @@ func Setup(
 		}),
 	).Methods(http.MethodPut, http.MethodOptions)
 
+	r0mux.Handle("/rooms/{roomId}/forget",
+		common.MakeAuthAPI("forget", authData, func(req *http.Request, device *authtypes.Device) util.JSONResponse {
+
+		}),
+	).Methods(http.MethodPost, http.MethodOptions)
+
+
+
+
+
+
+
+
+
+
+
+
+
 	r0mux.Handle("/register", common.MakeExternalAPI("register", func(req *http.Request) util.JSONResponse {
 		return Register(req, accountDB, deviceDB, &cfg)
 	})).Methods(http.MethodPost, http.MethodOptions)
